@@ -54,7 +54,8 @@
       }
 
       this.qtyVal = this.addBtn && this.addBtn.querySelector ? this.addBtn.querySelector('.qty-value') : null;
-      this.qtyBoxVal = this.qtyBox && this.qtyBox.querySelector ? this.qtyBox.querySelector('.qty-value') : null;
+      this.qtyBoxVal =
+        this.qtyBox && this.qtyBox.querySelector ? this.qtyBox.querySelector('.qty-value-controls') : null;
 
       if (!this.qtyVal || !this.qtyBoxVal) {
         console.warn('[featured-slider-card] Не знайдено qty-value:', {
@@ -86,6 +87,12 @@
     activateQuantityControls() {
       this.addBtn.classList.add('is-hidden');
       this.qtyBox.classList.remove('is-hidden');
+      if (window.innerWidth < 768) {
+        const priceWrapper = this.closest('.product-card').querySelector('.product-card__price-wrapper');
+        if (priceWrapper) {
+          priceWrapper.style.display = 'none';
+        }
+      }
       this.resetTimer();
     }
 
@@ -130,6 +137,12 @@
         console.error('Error adding to cart:', error);
         this.addBtn.classList.remove('is-hidden');
         this.qtyBox.classList.add('is-hidden');
+        if (window.innerWidth < 768) {
+          const priceWrapper = this.closest('.product-card').querySelector('.product-card__price-wrapper');
+          if (priceWrapper) {
+            priceWrapper.style.display = '';
+          }
+        }
       }
     }
 

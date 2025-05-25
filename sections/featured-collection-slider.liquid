@@ -10,20 +10,8 @@
     overflow: hidden;
   }
 
-  .featured-collection {
-    background-color: var(--featured-collection-bg, #F5F5F0);
-  }
-
   .product-card {
     flex: 0 0 calc((100% / var(--cards-visible)) - 3rem);
-  }
-
-  .featured-collection__subtitle {
-    color: var(--featured-collection-subtitle-color, #c6b081);
-  }
-
-  .featured-collection__heading {
-    color: var(--featured-collection-heading-color, #333);
   }
 </style>
 
@@ -121,24 +109,6 @@
       "max": 12,
       "step": 1,
       "default": 5
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Колір фону",
-      "default": "#F5F5F0"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Колір тексту заголовка",
-      "default": "#333333"
-    },
-    {
-      "type": "color",
-      "id": "subtitle_color",
-      "label": "Колір підзаголовка",
-      "default": "#8B4513"
     },
     {
       "type": "range",
