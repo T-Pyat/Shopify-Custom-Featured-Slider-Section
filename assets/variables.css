@@ -10,10 +10,13 @@
   --color-yellow: #ffd64f;
   --color-black: #282523;
 
+  --color-bg: #E8E3DB;
+  --color-bg-secondary: #F7F4F0;
+
   --shadow-card: 0 12px 32px 0 rgba(48, 42, 37, 0.08);
 
   --gradient-primary: linear-gradient(55deg, var(--color-gradient-dark) 0%, var(--color-gradient-middle) 49.76%, var(--color-gradient-dark) 100%);
-  --gradient-image: linear-gradient(136deg, var(--color-border) 0%, var(--color-background-light) 100%);
+  --gradient-image: linear-gradient(136deg, #e8dfd0 0%, #efe9df 100%);
 
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
@@ -37,4 +40,7 @@
   --line-height-base: 144%;
   --line-height-loose: 157%;
   --line-height-xl: 171%;
+
+  --font-family-manrope: 'Manrope', sans-serif;
+  --font-family-tenor: 'Tenor Sans', serif;
 } 

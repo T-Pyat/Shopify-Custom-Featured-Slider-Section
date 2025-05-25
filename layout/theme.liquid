@@ -28,6 +28,13 @@
 
     {% render 'meta-tags' %}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Tenor+Sans&display=swap"
+      rel="stylesheet"
+    >
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
@@ -297,8 +304,8 @@
       }
     </script>
 
-    <script src="{{ 'featured-slider-card.js' | asset_url }}" async></script>
-    <script src="{{ 'featured-collection-slider.js' | asset_url }}" async></script>
+    <script src="{{ 'featured-slider-card.js' | asset_url }}" defer></script>
+    <script src="{{ 'featured-collection-slider.js' | asset_url }}" defer></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

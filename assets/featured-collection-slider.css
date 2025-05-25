@@ -9,15 +9,18 @@
   margin-bottom: var(--spacing-xxl);
   margin-top: var(--spacing-lg);
   max-width: 490px;
+  font-family: var(--font-family-tenor);
 }
 
 .featured-collection__subtitle {
+  color: var(--color-accent);
   font-weight: 600;
   font-size: var(--font-size-base);
   line-height: var(--line-height-xl);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: center;
+  font-family: var(--font-family-manrope);
 }
 
 .featured-collection__slider-container {
@@ -118,6 +121,7 @@
 }
 
 .product-card__badge--variants {
+  font-family: var(--font-family-manrope);
   top: unset;
   bottom: var(--spacing-sm);
   background: var(--color-primary);
@@ -128,6 +132,7 @@
 }
 
 .product-card__vendor {
+  font-family: var(--font-family-manrope);
   font-weight: 400;
   font-size: var(--font-size-base);
   line-height: var(--line-height-xl);
@@ -141,6 +146,7 @@
   margin: 0px;
   margin-bottom: var(--spacing-lg);
   min-height: 52px;
+  font-family: var(--font-family-tenor);
 }
 
 .product-card__title a {
@@ -158,7 +164,7 @@
 }
 
 .product-card__price .price {
-  font-family: var(--font-family);
+  font-family: var(--font-family-manrope);
   font-weight: 600;
   font-size: var(--font-size-lg);
   line-height: var(--line-height-base);
@@ -213,7 +219,7 @@
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjU2IiB2aWV3Qm94PSIwIDAgMjgwIDU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8Zm9yZWlnbk9iamVjdCB4PSItOCIgeT0iLTgiIHdpZHRoPSIyOTYiIGhlaWdodD0iNzIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJiYWNrZHJvcC1maWx0ZXI6Ymx1cig0cHgpO2NsaXAtcGF0aDp1cmwoI2JnYmx1cl8wXzFfODgxN19jbGlwX3BhdGgpO2hlaWdodDoxMDAlO3dpZHRoOjEwMCUiPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48cGF0aCBkYXRhLWZpZ21hLWJnLWJsdXItcmFkaXVzPSI4IiBkPSJNOS4xMDg0IDAuNUgyNzAuOTNDMjcxLjM4MyAwLjUwMDA1NSAyNzEuODA4IDAuNzA0OTA5IDI3Mi4wOTEgMS4wNTA3OEwyNzIuMjAzIDEuMjA4MDFMMjc5LjI3MyAxMi41NzkxQzI3OS40MjEgMTIuODE2OCAyNzkuNSAxMy4wOTExIDI3OS41IDEzLjM3MTFWNDIuNjI3QzI3OS41IDQyLjgzNzcgMjc5LjQ1NSA0My4wNDUyIDI3OS4zNyA0My4yMzYzTDI3OS4yNzIgNDMuNDIwOVY0My40MjE5TDI3Mi4xNjQgNTQuNzk0OUMyNzEuODkgNTUuMjMzNCAyNzEuNDEgNTUuNDk5OSAyNzAuODkzIDU1LjVIOS4wODg4N0M4LjYzNTc4IDU1LjUgOC4yMTAzOSA1NS4yOTU3IDcuOTI3NzMgNTQuOTUwMkw3LjgxNjQxIDU0Ljc5MzlMMC43Mjc1MzkgNDMuNDIwOUMwLjU3OTE4NSA0My4xODI5IDAuNTAwMDQ2IDQyLjkwODQgMC41IDQyLjYyNzlWMTMuMzg0OEMwLjUgMTMuMTc0MiAwLjU0NDA3MyAxMi45NjY0IDAuNjI4OTA2IDEyLjc3NTRMMC43Mjc1MzkgMTIuNTg5OEw3LjgzNTk0IDEuMjA1MDhDOC4xMTAwMSAwLjc2NjM5MyA4LjU5MTEyIDAuNSA5LjEwODQgMC41WiIgZmlsbD0iI0M2QjA4MSIgZmlsbC1vcGFjaXR5PSIwLjA4IiBzdHJva2U9InVybCgjcGFpbnQwX2xpbmVhcl8xXzg4MTcpIi8+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImJnYmx1cl8wXzFfODgxN19jbGlwX3BhdGgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDggOCkiPjxwYXRoIGQ9Ik05LjEwODQgMC41SDI3MC45M0MyNzEuMzgzIDAuNTAwMDU1IDI3MS44MDggMC43MDQ5MDkgMjcyLjA5MSAxLjA1MDc4TDI3Mi4yMDMgMS4yMDgwMUwyNzkuMjczIDEyLjU3OTFDMjc5LjQyMSAxMi44MTY4IDI3OS41IDEzLjA5MTEgMjc5LjUgMTMuMzcxMVY0Mi42MjdDMjc5LjUgNDIuODM3NyAyNzkuNDU1IDQzLjA0NTIgMjc5LjM3IDQzLjIzNjNMMjc5LjI3MiA0My40MjA5VjQzLjQyMTlMMjcyLjE2NCA1NC43OTQ5QzI3MS44OSA1NS4yMzM0IDI3MS40MSA1NS40OTk5IDI3MC44OTMgNTUuNUg5LjA4ODg3QzguNjM1NzggNTUuNSA4LjIxMDM5IDU1LjI5NTcgNy45Mjc3MyA1NC45NTAyTDcuODE2NDEgNTQuNzkzOUwwLjcyNzUzOSA0My40MjA5QzAuNTc5MTg1IDQzLjE4MjkgMC41MDAwNDYgNDIuOTA4NCAwLjUgNDIuNjI3OVYxMy4zODQ4QzAuNSAxMy4xNzQyIDAuNTQ0MDczIDEyLjk2NjQgMC42Mjg5MDYgMTIuNzc1NEwwLjcyNzUzOSAxMi41ODk4TDcuODM1OTQgMS4yMDUwOEM4LjExMDAxIDAuNzY2MzkzIDguNTkxMTIgMC41IDkuMTA4NCAwLjVaIi8+CjwvY2xpcFBhdGg+PGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzFfODgxNyIgeDE9IjI3MC4yIiB5MT0iMjIuOTYiIHgyPSIxOTkuNzc3IiB5Mj0iMTQzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNCMTZEMUIiLz4KPHN0b3Agb2Zmc2V0PSIwLjUyNTkxNCIgc3RvcC1jb2xvcj0iI0U3QUQ2NyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNCNzdGMjgiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K);
   background-size: contain;
   background-repeat: no-repeat;
-  font-family: var(--font-family);
+  font-family: var(--font-family-manrope);
   font-weight: 500;
   font-size: 14px;
   line-height: 171%;
@@ -234,7 +240,7 @@
 }
 
 .product-card__weight {
-  font-family: var(--font-family);
+  font-family: var(--font-family-manrope);
   font-weight: 400;
   font-size: var(--font-size-base);
   line-height: var(--line-height-loose);

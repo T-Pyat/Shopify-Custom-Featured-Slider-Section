@@ -4,9 +4,13 @@ class FeaturedCollectionSlider extends HTMLElement {
     this._slider = null;
     this._leftArrow = null;
     this._rightArrow = null;
+    this._scrollbar = null;
+    this._thumb = null;
+
     this._updateArrows = this._updateArrows.bind(this);
     this._slideLeft = this._slideLeft.bind(this);
     this._slideRight = this._slideRight.bind(this);
+    this._updateThumb = this._updateThumb.bind(this);
   }
 
   connectedCallback() {
@@ -16,20 +20,27 @@ class FeaturedCollectionSlider extends HTMLElement {
     this._slider = container.querySelector('.featured-collection__slider');
     this._leftArrow = container.querySelector('.featured-collection__arrow--left');
     this._rightArrow = container.querySelector('.featured-collection__arrow--right');
+    this._scrollbar = container.querySelector('.custom-scrollbar');
+    this._thumb = container.querySelector('.custom-scrollbar-thumb');
 
-    if (!this._slider || !this._leftArrow || !this._rightArrow) return;
+    if (!this._slider || !this._leftArrow || !this._rightArrow || !this._scrollbar || !this._thumb) return;
 
     this._leftArrow.addEventListener('click', this._slideLeft);
     this._rightArrow.addEventListener('click', this._slideRight);
     this._slider.addEventListener('scroll', this._updateArrows);
+    this._slider.addEventListener('scroll', this._updateThumb);
+    window.addEventListener('resize', this._updateThumb);
 
     this._updateArrows();
+    this._updateThumb();
   }
 
   disconnectedCallback() {
-    if (this._leftArrow) this._leftArrow.removeEventListener('click', this._slideLeft);
-    if (this._rightArrow) this._rightArrow.removeEventListener('click', this._slideRight);
-    if (this._slider) this._slider.removeEventListener('scroll', this._updateArrows);
+    this._leftArrow?.removeEventListener('click', this._slideLeft);
+    this._rightArrow?.removeEventListener('click', this._slideRight);
+    this._slider?.removeEventListener('scroll', this._updateArrows);
+    this._slider?.removeEventListener('scroll', this._updateThumb);
+    window.removeEventListener('resize', this._updateThumb);
   }
 
   _updateArrows() {
@@ -45,6 +56,17 @@ class FeaturedCollectionSlider extends HTMLElement {
 
   _slideRight() {
     this._slider.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
+  _updateThumb() {
+    const scrollLeft = this._slider.scrollLeft;
+    const maxScrollLeft = this._slider.scrollWidth - this._slider.clientWidth;
+    const trackWidth = this._scrollbar.offsetWidth;
+    const thumbWidth = this._thumb.offsetWidth;
+    const maxThumbMove = trackWidth - thumbWidth;
+
+    const thumbX = (scrollLeft / maxScrollLeft) * maxThumbMove;
+    this._thumb.style.transform = `translateX(${thumbX}px)`;
   }
 }
 
