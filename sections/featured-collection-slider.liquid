@@ -1,0 +1,174 @@
+{% comment %}
+  Featured Slider
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'featured-collection-slider.css' | asset_url }}">
+
+<style>
+  .featured-collection__slider {
+    --cards-visible: {{ section.settings.products_to_show }};
+    overflow: hidden;
+  }
+
+  .featured-collection {
+    background-color: var(--featured-collection-bg, #F5F5F0);
+  }
+
+  .product-card {
+    flex: 0 0 calc((100% / var(--cards-visible)) - 3rem);
+  }
+
+  .featured-collection__subtitle {
+    color: var(--featured-collection-subtitle-color, #c6b081);
+  }
+
+  .featured-collection__heading {
+    color: var(--featured-collection-heading-color, #333);
+  }
+</style>
+
+<section
+  class="featured-collection"
+  style="padding-top: {{ section.settings.padding_top | append: 'px' }}; padding-bottom: {{ section.settings.padding_bottom | append: 'px' }}"
+>
+  <div class="featured-collection__container">
+    {% if section.settings.subtitle != blank %}
+      <div class="featured-collection__subtitle">{{ section.settings.subtitle }}</div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="featured-collection__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="featured-collection__description rte">{{ section.settings.description }}</div>
+    {% endif %}
+
+    {% if section.settings.collection != blank %}
+      {% assign collection = collections[section.settings.collection] %}
+      {% if collection.products.size > 0 %}
+        <featured-collection-slider class="featured-collection__slider-wrapper">
+          <div class="featured-collection__slider-container">
+            <div class="featured-collection__arrow featured-collection__arrow--left">
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 5.00003L13 5.00002M13 5.00002C13 5.00002 10.6028 5.64754 9.36721 6.4286C8.13156 7.2096 6.67189 9 6.67189 9M13 5.00002C13 5.00002 10.6028 4.35246 9.36721 3.57145C8.13155 2.7904 6.67189 1 6.67189 1" stroke="#3E3229" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="featured-collection__arrow featured-collection__arrow--right">
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 5.00003L13 5.00002M13 5.00002C13 5.00002 10.6028 5.64754 9.36721 6.4286C8.13156 7.2096 6.67189 9 6.67189 9M13 5.00002C13 5.00002 10.6028 4.35246 9.36721 3.57145C8.13155 2.7904 6.67189 1 6.67189 1" stroke="#3E3229" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="featured-collection__slider">
+              {% for product in collection.products %}
+                {% render 'featured-product-card', product: product %}
+              {% endfor %}
+            </div>
+          </div>
+        </featured-collection-slider>
+        {% if section.settings.cta_text != blank %}
+          <div class="featured-collection__cta">
+            <a href="{{ collection.url }}" class="button">
+              {{- section.settings.cta_text }}
+              <span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 8.00003L14 8.00002M14 8.00002C14 8.00002 11.6028 8.64754 10.3672 9.4286C9.13156 10.2096 7.67189 12 7.67189 12M14 8.00002C14 8.00002 11.6028 7.35246 10.3672 6.57145C9.13155 5.7904 7.67189 4 7.67189 4" stroke="#3E3229" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        {% endif %}
+      {% else %}
+        <p>У вибраній колекції немає товарів</p>
+      {% endif %}
+    {% else %}
+      <p>Колекція не вибрана</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Підзаголовок",
+      "default": "НАЙКРАЩІ БЕСТСЕЛЕРИ"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Заголовок секції",
+      "default": "Найбільш обиране серед покупців"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Опис секції"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Колекція"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Кількість продуктів",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Колір фону",
+      "default": "#F5F5F0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Колір тексту заголовка",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Колір підзаголовка",
+      "default": "#8B4513"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Падінг зверху",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Падінг знизу",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Текст кнопки",
+      "default": "Обрати з улюбленого"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Slider"
+    }
+  ]
+}
+{% endschema %}
